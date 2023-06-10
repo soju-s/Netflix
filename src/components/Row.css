@@ -1,0 +1,24 @@
+.movie_row{
+    display: flex;
+    margin-top: 20px;
+}
+
+.image{
+    max-height: 200px;
+    margin-right: 20px;
+    transition: transform ease-in-out 0.5s;
+    width: 100%;
+    object-fit: contain;
+
+}
+.image:hover{
+    transform: scale(1.05);
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.main_div{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
