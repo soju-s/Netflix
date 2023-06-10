@@ -5,7 +5,7 @@ import './Row.css';
 
 
 
- function Row({title,fetchUrl}) {
+ function Row({title,fetchUrl,isPoster}) {
 
     const base_url="https://image.tmdb.org/t/p/original/";
 
@@ -18,8 +18,10 @@ import './Row.css';
         const response= await instance.get(fetchUrl)
        
         const {results}=response.data
+       
         
         setMovies(results)
+
 
        
     }
@@ -40,7 +42,7 @@ import './Row.css';
   { 
   
   movies.map((image)=>(
-      < img className='image' src={`${base_url}/${image.backdrop_path}` } alt="movie image" />
+      < img className={`image ${isPoster && 'poster'}`} src={`${base_url}/${isPoster?image?.poster_path:image?.backdrop_path}` } alt="movie image" />
   ))
   }
       </div>

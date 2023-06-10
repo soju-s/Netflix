@@ -8,43 +8,54 @@ import requests from '../request'
 
 export default function Banner() {
 
-    const [movies,setMovies]=useState([])
+    const base_url = "https://image.tmdb.org/t/p/original/";
+
+    const [movies, setMovies] = useState([])
 
 
-    const fetchData= async()=>{
+    const fetchData = async () => {
 
-        const datas=await instance.get(requests.fetchNetflixOriginals)
-        
+        const datas = await instance.get(requests.fetchNetflixOriginals)
 
-       const  {results}=datas.data
-        console.log(results);
-        setMovies(results)
+
+        const { results } = datas.data
+
+        setMovies(results[Math.floor(Math.random() * results.length)])
 
     }
 
-    useEffect(()=>{
+    console.log(movies);
+
+    useEffect(() => {
         fetchData()
-    },[])
+    }, [])
 
 
 
 
 
-  return (
+    return (
 
-   <>
-        
-        <div>Banner</div>
-    <div>
-        
-            {
-                movies.map((datass)=>(
-                   
-                ))
-            }
-    </div>
-   </>
+        <>
+
+            <div className='image_banner' style={{
+                backgroundImage: `url(${base_url}/${movies?.backdrop_path})`,
+                backgroundSize: 'cover',
+                top: 0
 
 
-  )
+            }}>
+                <div className='banner_text'>
+
+                    <h1 className='banner_title'>{movies?.name}</h1>
+
+                    <h2 className='banner_overview'>{movies.overview}</h2>
+
+                </div>
+            </div>
+
+        </>
+
+
+    )
 }

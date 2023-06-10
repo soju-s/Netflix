@@ -1,0 +1,21 @@
+.image_banner{
+    height: 70vh;
+    
+}
+.banner_text{
+    margin-left: 4rem;
+    padding-top: 20vh;
+    height: 200px;
+}
+.banner_title{
+    font-size: 3rem;
+    font-weight: 800;
+}
+.banner_overview{
+    font-size: 1rem;
+    line-height: 1rem;
+    padding-top: 1rem;
+    
+    max-width: 600px;
+    height: 80px;
+}
